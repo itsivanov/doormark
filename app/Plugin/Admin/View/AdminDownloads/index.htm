@@ -1,0 +1,60 @@
+
+
+{{ _view.start('script') }}
+<script type="text/javascript" src="/admin/components/datatables/dataTables.min.js"></script>
+<script type="text/javascript" src="/admin/components/datatables/ColVis.js"></script>
+{{ _view.end() }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> File</span>
+    {{ _view.end() }}
+    <ul class="uibutton-group">
+        <li><a href="/admin/download/add" class="uibutton icon add" title="Add news">Add File</a></li>
+    </ul>
+
+    <!-- title box -->
+    <div class="boxtitle min">List of posts</div>
+    <div class="tableName">
+
+        <br/>
+        <table class="display static " id="staticPages">
+            <thead>
+            <tr>
+                <th width="">Name</th>
+                <th width="">Size</th>
+                <th width="">New</th>
+                <th width="">Load</th>
+                <th width="">Management</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in files %}
+            <tr>
+                <td>{{ item.Download.title }}</td>
+                <td>{{ item.Download.size }}</td>
+                <td>
+                    <a href="/admin/download/status/{{ item.Download.id }}">
+                        {% if  item.Download.new %}
+                        <img src="/admin/images/icon/bullet_green.png"/>
+                        {% else %}
+                        <img src="/admin/images/icon/bullet_red.png"/>
+                        {% endif %}
+                    </a>
+                </td>
+                <td><a href="{{ item.Download.link }}" download>Click</a></td>
+                <td>
+                    <span class="tip">
+                        <a class="edit_link" title="Edit" href="/admin/download/edit/{{ item.Download.id }}"><i class="fa fa-pencil"></i></a>
+                    </span>
+                    <span class="tip">
+                        <a class="delete_link delete" title="Delete" href="/admin/download/delete/{{ item.Download.id }}"><i class="fa fa-trash"></i></a>
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+

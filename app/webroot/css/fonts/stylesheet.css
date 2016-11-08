@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('BebasNeue.eot');
+    src: url('BebasNeue.eot') format('embedded-opentype'),
+    url('BebasNeue.woff2') format('woff2'),
+    url('BebasNeue.woff') format('woff'),
+    url('BebasNeue.ttf') format('truetype'),
+    url('BebasNeue.svg#BebasNeue') format('svg');
+}
+
+@font-face {
+    font-family: 'proxima_nova_cn_rgregular';
+    src: url('proxima_nova_condensed_regular-webfont.eot');
+    src: url('proxima_nova_condensed_regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('proxima_nova_condensed_regular-webfont.woff2') format('woff2'),
+    url('proxima_nova_condensed_regular-webfont.woff') format('woff'),
+    url('proxima_nova_condensed_regular-webfont.ttf') format('truetype'),
+    url('proxima_nova_condensed_regular-webfont.svg#proxima_nova_cn_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

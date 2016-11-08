@@ -1,0 +1,45 @@
+<div class="title">
+    <h1>{{namePage.Page.title}}</h1>
+</div>
+<div class="content bg-white">
+    <div class="wrapper">
+        <ul class="gallery clearfix">
+            {%for item in img %}
+            <li>
+                <a href="#gallery" class="fancy" id="{{item.Gallery.id}}">
+                    <img src="{{item.Gallery.image}}" alt="">
+                </a>
+            </li>
+            {%endfor%}
+            <div id="upImages"></div>
+        </ul>
+        <a href="#" class="view-more" id="getImages"><i id="faLoad" class="fa fa-refresh fa-fw"></i> View more</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $('.gallery-slider').cycle();
+        $('.nav-bar').tabs('.contact-info > div');
+        $(".open-nav").click(function () {
+            setTimeout( $(".nav-holder").toggleClass('show'),1000);
+            $(this).toggleClass('current');
+        });
+        $("a.fancy").fancybox({
+            'padding'			: 35,
+            'autoScale'			: true,
+            'autoDimensions'    : true,
+//	            'transitionIn'		: 'none',
+//	            'transitionOut'		: 'none',
+            'scrolling'   		: 'auto',
+            'transitionIn'	:	'elastic',
+            'transitionOut'	:	'elastic',
+            'speedIn'		:	600,
+            'speedOut'		:	200,
+            'overlayShow'	:	false
+        });
+    });
+</script>
+
+<script src="js/custom/gallery.js"></script>
+

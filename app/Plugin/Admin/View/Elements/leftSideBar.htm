@@ -1,0 +1,100 @@
+<div id="left_menu">
+
+    <ul id="main_menu" class="main_menu">
+        <li{{ activeItem|checkActiveItem('dashboard') }}>
+            <a href="/admin"><i class="fa fa-home"></i> <b>Dashboard</b></a>
+        </li>
+
+        <li{{ activeItem|checkActiveItem('pages') }}>
+            <a href="/admin/pages/index"><i class="fa fa-font"></i> <b>Pages</b></a>
+        </li>
+
+        <li{{ activeItem|checkActiveItem('content') }}>
+            <a href="javascript:"><i class="fa fa-file-text"></i> <b>Home Page</b></a>
+            <ul>
+                <li><a class="" href="/admin/main-slider">Main Slider</a></li>
+                <li><a class="" href="/admin/slider">Slider</a></li>
+                <li><a class="" href="/admin/home-parts">Home Parts</a></li>
+            </ul>
+        </li>
+
+        <li{{ activeItem|checkActiveItem('gallery') }}>
+        <a href="/admin/albums"><i class="fa fa-picture-o"></i> <b>Albums</b></a>
+        </li>
+
+        <!--<li{{ activeItem|checkActiveItem('blog') }}><a href="#"><span class="ico gray list"></span><b>Blog</b></a>-->
+            <!--<ul>-->
+                <!--<li><a href="/admin/how_it_works">How it works </a></li>-->
+                <!--<li><a href="/admin/faq">FAQ </a></li>-->
+                <!--<li><a href="/admin/news">News </a></li>-->
+                <!--<li><a href="/admin/tidcategory">News Categories </a></li>-->
+                <!--<li><a href="/admin/tags">News Tags </a></li>-->
+                <!--<li><a href="/admin/gallery">Gallery </a></li>-->
+                <!--<li><a href="/admin/about">About </a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+
+        <li{{ activeItem|checkActiveItem('blog') }}><a href="/admin/faq"><span class="ico gray list"></span><b>FAQ</b></a>
+        </li>
+
+        <li{{ activeItem|checkActiveItem('downloads') }}><a href="/admin/download"><span class="ico gray list"></span><b>Downloads</b></a>
+        </li>
+
+        <li{{ activeItem|checkActiveItem('categories') }}><a href="/admin/categories"><span class="ico gray list"></span><b>Categories</b></a>
+        </li>
+
+        <!--<li{{ activeItem|checkActiveItem('discounts') }}>-->
+            <!--<a href="/admin/discounts"><i class="fa fa-diamond" aria-hidden="true"></i> <b>Discounts</b></a>-->
+        <!--</li>-->
+
+        <!--<li{{ activeItem|checkActiveItem('feedbacks') }}>-->
+            <!--<a href="/admin/feedbacks"><i class="fa fa-diamond" aria-hidden="true"></i> <b>Feedbacks</b></a>-->
+            <!--<ul>-->
+                <!--<li><a href="/admin/contacts">Contacts</a></li>-->
+                <!--<li><a href="/admin/subscribe">Subscribe by email</a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+
+        <li{{ activeItem|checkActiveItem('products') }}>
+            <a href="/admin/products"><i class="fa fa-gift "></i> <b>Products</b></a>
+        <li>
+
+        <li{{ activeItem|checkActiveItem('paletteCategory') }}>
+        <a href="/admin/lcategories"><i class="fa fa-gift "></i> <b>Palette Categories</b></a>
+        <li>
+
+        <li{{ activeItem|checkActiveItem('palette') }}>
+            <a href="/admin/laminates"><i class="fa fa-gift "></i> <b>Palette</b></a>
+        <li>
+            <!--<li><a href="/admin/accessories">Accessories </a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+
+
+
+
+        <li{{ activeItem|checkActiveItem('companies') }}>
+            <a href="/admin/companies"><i class="fa fa-newspaper-o"></i> <b>Companies</b></a>
+
+        </li>
+
+        <!--<li{{ activeItem|checkActiveItem('orders') }}>-->
+            <!--<a href="/admin/orders"><i class="fa fa-cart-arrow-down"></i> <b>Orders</b></a>-->
+        <!--</li>-->
+
+        <!--<li{{ activeItem|checkActiveItem('menus') }}>-->
+            <!--<a href="#"><i class="fa fa-bars"></i> <b>Menu</b></a>-->
+            <!--<ul>-->
+                <!--<li><a href="/admin/footer"><b>Footer Left</b></a></li>-->
+                <!--<li><a href="/admin/footer_right"><b>Footer Right</b></a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+
+        <li{{ activeItem|checkActiveItem('options') }}>
+            <a href="/admin/options"><i class="fa fa-wrench"></i> </span><b>Settings</b></a>
+            <ul>
+                <li><a href="/admin/contact"><span class="ico gray list"></span><b>Contacts Edit</b></a></li>
+            </ul>
+        </li>
+    </li>
+</div>

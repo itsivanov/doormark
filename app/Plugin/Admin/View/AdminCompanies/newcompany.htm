@@ -1,0 +1,40 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-file-text"></i> Companies</span>
+    {{ _view.end() }}
+
+    <div class="boxtitle min"><i class="fa fa-pencil"></i> Edit Company</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/companies" class="uibutton special"><i class="fa fa-list-ol"></i> Companies list</a></li>
+    </ul>
+
+    {{ form.create({'class' : 'form'}) }}
+
+    <div class="section">
+        <label>Email</label>
+        <div>{{ form.input('User.email', {'type':'email','div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Email'}) }}</div>
+    </div>
+
+    <div class="section">
+        <label>Username</label>
+        <div>{{ form.input('User.username', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Username'}) }}</div>
+    </div>
+
+    <div class="section">
+        <label>Password</label>
+        <div>{{ form.input('User.password', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Password'}) }}</div>
+    </div>
+
+    {{ form.hidden('User.group_id', {'value': 2} ) }}
+    {{ form.hidden('User.active', {'value': 1} ) }}
+    {{ form.hidden('User.last_login', {'value': time} ) }}
+
+
+    <div class="section last">
+        <div>
+            {{ form.submit('Save', {'class' : 'uibutton loading'}) }}
+        </div>
+    </div>
+    {{ form.end() }}
+</div>

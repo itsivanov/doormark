@@ -1,0 +1,66 @@
+
+<div class="title">
+    <h1>{{namePage.Page.title}}</h1>
+</div>
+<div class="wrap bg-white clearfix">
+    <aside class="sidebar">
+        <h2>Categories</h2>
+        <ul class="category">
+            {%for item in parentMenus%}
+            <li><a href="#">{{item.Category.title}}</a>
+                <ul>
+                    {%for value in products%}
+                        {%if (value.Product.category_id == item.Category.id)%}
+                            <li class="active"><a href="/door/view/{{value.Product.id}}">{{value.Product.title}}</a></li>
+                        {%endif%}
+                    {%endfor%}
+                </ul>
+            </li>
+            {%endfor%}
+        </ul>
+    </aside>
+    <section class="holder">
+        <ul class="category-list clearfix">
+            {%for item in categoryContent%}
+                <li class="countCat">
+                    <a href="door/{{item.Category.id}}" class="image">
+                        <img src="{{item.Category.image}}" alt="" width="172" height="242">
+                    </a>
+                    <div class="holder">
+                        <h3><a href="door/{{item.Category.id}}">{{item.Category.title}}</a></h3>
+                        <div class="text-inner">
+                            <p>{{item.Category.description}}</p>
+                        </div>
+                        <a href="door/{{item.Category.id}}" class="btn">Details</a>
+                    </div>
+                </li>
+            {%endfor%}
+            <div id="upCategories"></div>
+        </ul>
+
+        <a href="#" class="view-more" id="getCategory"><i class="fa fa-refresh fa-fw" id="faLoad" aria-hidden="false"></i> View more</a>
+    </section>
+</div>
+<script type="text/javascript" src="/js/jquery.accordion.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $(".open-nav").click(function () {
+            $(".nav-holder").toggleClass('show');
+            $(this).toggleClass('current');
+        });
+
+        $('ul.category').accordion({
+            active: null,
+            autoHeight: 0,
+            header: "> li > a",
+            collapsible: true,
+            heightStyle: "content",
+            event: "click"
+        });
+    });
+</script>
+<script type="text/javascript" src="/js/custom/doorCategory.js"></script>
+
+

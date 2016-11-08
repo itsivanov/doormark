@@ -1,0 +1,50 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> Edit sliders</span>
+    {{ _view.end() }}
+
+    <style>
+        .properties{
+            margin-bottom: 70px;
+        }
+
+        .properties div{
+            width: auto; float: left; margin: 0 20px; border: 0;
+        }
+    </style>
+    <div class="boxtitle min"><i class="fa fa-pencil"></i>Edit Slider</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/lcategories" class="uibutton special"><i class="fa fa-arrow-left"></i> Back</a></li>
+    </ul>
+
+    {{ form.create({'class' : 'form'}) }}
+    {{ form.hidden('id',{'value' : category.LaminateCategory.id} ) }}
+
+    <div id="data">
+
+        <div class="section">
+            <label>Title</label>
+            <div>{{ form.input('name', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value': category.LaminateCategory.name}) }}</div>
+        </div>
+
+
+    </div>
+
+
+    <div class="section last">
+        <div>
+            {{ form.submit('Save', {'class' : 'uibutton loading'}) }}
+        </div>
+    </div>
+    {{ form.end() }}
+
+</div>
+
+<style>
+    .dimensions input {
+        width: 10%;
+        min-width: 80px;
+    }
+</style>
+

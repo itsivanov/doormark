@@ -1,0 +1,184 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> Edit sliders</span>
+    {{ _view.end() }}
+
+    <style>
+        .properties{
+            margin-bottom: 70px;
+        }
+
+        .properties div{
+            width: auto; float: left; margin: 0 20px; border: 0;
+        }
+    </style>
+
+    <div class="boxtitle min"><i class="fa fa-pencil"></i>Edit Slider</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/laminates-view/{{element}}" class="uibutton special"><i class="fa fa-arrow-left"></i> Back</a></li>
+    </ul>
+    <div id="tabs">
+        <ul>
+            <li><a href="#data">Item</a></li>
+            <li><a href="#images">Images</a></li>
+        </ul>
+
+        {{ form.create({'class' : 'form'}) }}
+        {{ form.hidden('id',{'value' : product.Laminate.id} ) }}
+        {{ form.hidden('element',{'value' : element} ) }}
+
+        <div id="data">
+
+            <div class="section">
+                <label>Title</label>
+                <div>{{ form.input('title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value': product.Laminate.title}) }}</div>
+            </div>
+
+            <div class="section">
+                <label>Name</label>
+                <div>{{ form.input('name', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Name', 'value': product.Laminate.name}) }}</div>
+            </div>
+
+            <div class="section">
+                <label>Category</label>
+                <select name="Laminate[laminate_category_id]">
+                    {%for item in category%}
+                    <option value="{{item.LaminateCategory.id}}"  {{ item.LaminateCategory.id == product.Laminate.laminate_category_id ? 'selected' }}>{{item.LaminateCategory.name}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+
+            {%if element == 'laminate' %}
+                <div class="section">
+                    <label>Available in</label>
+                    <div>{{ form.checkbox('available' , {'checked': product.Laminate.available}) }}</div>
+                </div>
+
+                <div class="section">
+                    <label>Foil</label>
+                    <div>{{ form.checkbox('foil' , {'checked': product.Laminate.foil}) }}</div>
+                </div>
+
+                <div class="section">
+                    <label>High pressure laminate</label>
+                    <div>{{ form.checkbox('high' , {'checked': product.Laminate.high}) }}</div>
+                </div>
+
+                <div class="section">
+                    <label>Phenolic backed laminate</label>
+                    <div>{{ form.checkbox('phenolic' , {'checked': product.Laminate.phenolic}) }}</div>
+                </div>
+
+                <div class="section">
+                    <label>Match back</label>
+                    <div>{{ form.checkbox('phenolic' , {'checked': product.Laminate.match}) }}</div>
+                </div>
+            {%endif%}
+        </div>
+        <div id="images">
+            <section class="section">
+                <h4>Images</h4><span>Please drag-and-drop to change order</span>
+                <div id="photosContainer" class="clearfix">
+                    <ul class="listPhotos" id="ulListPhotos">
+
+                        <li class="clearfix imageBlock">
+                            <div class="dottedFrame" style="position: relative">
+                                <span><img src="{{ product.Laminate.image | default('/img/no_image/default.jpg')}}" width="100px" height="100px"></span>
+                                <input type="hidden" name="data[Laminate][image]" value="{{product.Laminate.image }}">
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <div class="section last">
+                <div><a href="javascript:" class="uibutton loading" id="uploadImage">Upload image</a></div>
+            </div>
+        </div>
+
+        <div class="section last">
+            <div>
+                {{ form.submit('Save', {'class' : 'uibutton loading'}) }}
+            </div>
+        </div>
+        {{ form.end() }}
+    </div>
+</div>
+
+<style>
+    .dimensions input {
+        width: 10%;
+        min-width: 80px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(function() {
+        $("#tabs").tabs();
+
+        $('.wysiwyg').elrte(opts);
+
+        $(document).on('click', '#imageId', function(e) {
+            e.preventDefault();
+            var thisBtn = $(e.currentTarget);
+            $("<div />").dialogelfinder({
+                width: 850,
+                url: '/js/elfinder2/connector.php',
+                commandsOptions: {
+                    getfile: {
+                        oncomplete: 'destroy' // destroy elFinder after file selection
+                    }
+                },
+                getFileCallback: function (url) {
+                    $('#imageInput').val(url);
+                    thisBtn.attr('src', url);
+                }
+            });
+        });
+
+        var i = '{{ data.Slider[(data.Slider | length-1)].id }}';
+
+        $('.listPhotos').sortable({
+            update: function(){
+                $('.listPhotos li').each(function(index){
+                    $(this).find('.hidden-priority').val(index);
+                });
+            }
+        });
+
+        $(document).on('click', '#uploadImage', function() {
+            var a = $(this);
+
+            $("<div />").dialogelfinder({
+                width: 850,
+                url: '/js/elfinder2/connector.php',
+                commandsOptions: {
+                    getfile: {
+                        oncomplete: 'destroy' // destroy elFinder after file selection
+                    }
+                },
+
+                getFileCallback: function (url) {
+
+                    $('.listPhotos').html('' +
+                            '<li class="clearfix imageBlock">' +
+                            '<div class="dottedFrame" style="position: relative">'+
+                            '<span><img src="'+ url +'" width="100px" height="100px"></span>' +
+                            '<input type="hidden" name="data[Laminate][image]" value="'+ url +'">' +
+                            '</div>'+
+                            '</li>');
+
+                    showSuccess('Image uploaded successfully', 500);
+                }
+            });
+        });
+
+        $(document).on('click', '.remove-img', function(e) {
+            e.preventDefault();
+            $(this).parents('.imageBlock').remove();
+        });
+
+    });
+</script>

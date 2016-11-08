@@ -1,0 +1,371 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> Products</span>
+    {{ _view.end() }}
+
+    <style>
+        .properties{
+            margin-bottom: 70px;
+        }
+
+        .properties div{
+            width: auto; float: left; margin: 0 20px; border: 0;
+        }
+    </style>
+    <div class="boxtitle min"><i class="fa fa-pencil"></i> {{ category.Category.name }}: {% if data.Product.id %}Edit{% else %}Add new{% endif %} Product</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/products/{{ category.Category.id }}" class="uibutton special"><i class="fa fa-list-ol"></i> {{ category.Category.name }} - Product list</a></li>
+    </ul>
+    <div id="tabs">
+        <ul>
+            <li><a href="#data">Product data</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#productImages">Product Images</a></li>
+            <li><a href="#palette">Palette</a></li>
+        </ul>
+
+        {{ form.create({'class' : 'form', 'novalidate':'novalidate'}) }}
+        <div id="data">
+            {{ form.hidden('id',{'value' : productInfo.Product.id} ) }}
+
+            <div class="section">
+                <label>Category</label>
+                <select name="Product[category_id]">
+                    {%for item in category%}
+                    <option value="{{item.Category.id}}">{{item.Category.title}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+
+            <div class="section">
+                <label>Active</label>
+                <div>{{ form.checkbox('active', {'checked': productInfo.Product.active})}}</div>
+            </div>
+
+            <div class="section">
+                <label>Title</label>
+                <div>{{ form.input('title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+            </div>
+
+            <div class="section">
+                <label>Short description</label>
+                <div>{{ form.input('short_description', {'div' : false, 'label' : false, 'placeholder':'Short Description', 'value':productInfo.Product.short_description}) }}</div>
+            </div>
+
+            <div class="section">
+                <label>Description</label>
+                <div>{{ form.input('description', {'type':'textarea','div' : false, 'label' : false, 'placeholder':'Description', 'value':productInfo.Product.description}) }}</div>
+            </div>
+
+            <div class="section">
+                <label>Meta</label>
+                Meta title: {{ form.input('meta_title', {'div' : false, 'label' : false, 'class':'section_second_position','placeholder':'Meta Title', 'value':productInfo.Product.meta_title }) }}
+                Meta decription: {{ form.input('meta_description', {'div' : false, 'label' : false, 'class':'section_second_position', 'placeholder':'Meta Decription', 'value':productInfo.Product.meta_description }) }}
+                Meta keywords: {{ form.input('meta_keywords', {'div' : false, 'label' : false, 'class':'section_second_position', 'placeholder':'Meta Keywords', 'value':productInfo.Product.meta_keywords}) }}
+            </div>
+
+            <div class="section">
+                <label>Center rail</label>
+                {{ form.input('center_rail', {'div' : false, 'label' : false,'required' : 'required', 'class':'','placeholder':'Meta Title', 'value':productInfo.Product.center_rail}) }}
+            </div>
+
+            <div class="section">
+                <label>Thickness</label>
+                {{ form.input('thickness', {'div' : false, 'label' : false,'required' : 'required', 'class':'','placeholder':'Meta Title', 'value':productInfo.Product.thickness}) }}
+            </div>
+
+            <div class="section">
+                <label>Max height</label>
+                {{ form.input('max_height', {'div' : false, 'label' : false, 'class':'','required' : 'required', 'placeholder':'Meta Decription', 'value':productInfo.Product.max_height }) }}
+            </div>
+
+            <div class="section">
+                <label>Min height</label>
+                {{ form.input('min_height', {'div' : false, 'label' : false, 'class':'','required' : 'required', 'placeholder':'Meta Keywords', 'value':productInfo.Product.min_height}) }}
+            </div>
+
+            <div class="section">
+                <label>Max width</label>
+                {{ form.input('max_width', {'div' : false, 'label' : false, 'class':'','required' : 'required', 'placeholder':'Meta Keywords', 'value':productInfo.Product.max_width}) }}
+            </div>
+
+            <div class="section">
+                <label>Min width</label>
+                {{ form.input('min_width', {'div' : false, 'label' : false, 'class':'', 'required' : 'required','placeholder':'Meta Keywords', 'value':productInfo.Product.min_width}) }}
+            </div>
+        </div>
+
+        <div id="images">
+            <section class="section">
+                <h4>Images</h4>
+                <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                <div id="photosContainer" class="clearfix">
+                    <ul class="listPhotos" id="ulListPhotos">
+                        <li class="clearfix imageBlock">
+                            <div class="dottedFrame" style="position: relative">
+                                <span><img src="{{productInfo.Product.image}}" width="200px" height="200px"></span>
+                                <input type="hidden" name="Product[image]" value="{{ productInfo.Product.image}}">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section last">
+                    <div><a href="javascript:" class="uibutton upload" id="uploadImage">Upload image</a></div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h4>Profile</h4>
+                <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                <div class="clearfix">
+                    <ul class="subListPhotos" >
+                        <li class="clearfix imageBlock">
+                            <div class="dottedFrame" style="position: relative">
+                                <span><img src="{{productInfo.Product.sub_img}}" width="200px" height="200px"></span>
+                                <input type="hidden" name="Product[sub_img]" value="{{ productInfo.Product.image}}">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section last">
+                    <div><a href="javascript:" class="uibutton upload" id="subUploadImage">Upload image</a></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="productImages">
+            <div id="imageTabs">
+            <ul>
+                <li><a href="#oneImg">First</a></li>
+                <li><a href="#secondImg">Second</a></li>
+                <li><a href="#thirdImg">Third</a></li>
+            </ul>
+                <div id="oneImg">
+
+                    <section class="section">
+                        <h4>Door style</h4>
+                        <div class="clearfix">
+                            <ul class="firstList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[0][img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="one">Upload image</a></div>
+                        </div>
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.0.title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+
+                        <h4>Door front</h4>
+                        <div class="clearfix">
+                            <ul class="subFirstList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[0][sub_img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="sub_one">Upload image</a></div>
+                        </div>
+
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.0.sub_title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="secondImg">
+                    <section class="section">
+                        <h4>Door style</h4>
+                        <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                        <div class="clearfix">
+                            <ul class="secondList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[2][img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="secondUp">Upload image</a></div>
+                        </div>
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.1.title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+
+                        <h4>Door front</h4>
+                        <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                        <div class="clearfix">
+                            <ul class="subSecondList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[2][sub_img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="subSecondUp">Upload image</a></div>
+                        </div>
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.1.sub_title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="thirdImg">
+                    <section class="section">
+                        <h4>Door style</h4>
+                        <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                        <div class="clearfix">
+                            <ul class="thirdList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[1][img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="thirdUp">Upload image</a></div>
+                        </div>
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.2.title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+
+                        <h4>Door front</h4>
+                        <input type="hidden" name="Product[id]" value="{{ productInfo.Product.id }}">
+
+                        <div class="clearfix">
+                            <ul class="subThirdList" >
+                                <li class="clearfix one">
+                                    <div class="dottedFrame" style="position: relative">
+                                        <span><img src="{{productInfo.Product.sub_img|default('/img/no_image/default.jpg')}}" width="200px" height="200px"></span>
+                                        <input type="hidden" name="ProductImage[1][sub_img]" value="{{ productInfo.Product.image}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section last">
+                            <div><a href="javascript:" class="uibutton upload" id="subThirdUp">Upload image</a></div>
+                        </div>
+
+                        <div class="section">
+                            <label>Title</label>
+                            <div>{{ form.input('ProductImage.2.sub_title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value':productInfo.Product.title}) }}</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="palette">
+            <div id="paletteTabs">
+                <ul>
+                    <li><a href="#3d">3D Laminate</a></li>
+                    <li><a href="#fin">Finishes</a></li>
+                    <li><a href="#back">Match Back</a></li>
+                </ul>
+                <div id="3d">
+                    {% set count = 0 %}
+                    {%for item in palette %}
+                    {%if item.Laminate.element == 'laminate'%}
+                    <div class="section">
+
+                        <img src="{{item.Laminate.image |default('/img/no_image/default.jpg')}}" width="50" height="50">
+                        <input type="checkbox" name="ProductLaminate[{{count}}][laminate_id]"value="{{item.Laminate.id}}"
+                               {%for value in lamCheck%}
+                               {% if item.Laminate.id == value.ProductLaminate.laminate_id %}checked{%endif%}
+                               {% endfor%}
+                        >{{item.Laminate.name}}
+                    </div>
+                    {%endif%}
+                    {% set count = count + 1 %}
+                    {%endfor%}
+                </div>
+
+                <div id="fin">
+                    {% set count = 0 %}
+                    {%for item in palette %}
+                    {%if item.Laminate.element == 'finishes'%}
+                    <div class="section">
+
+                        <img src="{{item.Laminate.image |default('/img/no_image/default.jpg')}}" width="50" height="50">
+                        <input type="checkbox" name="ProductLaminate[{{count}}][laminate_id]"value="{{item.Laminate.id}}"
+                               {%for value in lamCheck%}
+                               {% if item.Laminate.id == value.ProductLaminate.laminate_id %}checked{%endif%}
+                               {% endfor%}
+                        >{{item.Laminate.name}}
+                    </div>
+                    {%endif%}
+                    {% set count = count + 1 %}
+                    {%endfor%}
+                </div>
+
+                <div id="back">
+                    {% set count = 0 %}
+                    {%for item in palette %}
+                    {%if item.Laminate.element == 'match_back'%}
+                    <div class="section">
+
+                        <img src="{{item.Laminate.image |default('/img/no_image/default.jpg')}}" width="50" height="50">
+                        <input type="checkbox" name="ProductLaminate[{{count}}][laminate_id]"value="{{item.Laminate.id}}"
+                               {%for value in lamCheck%}
+                               {% if item.Laminate.id == value.ProductLaminate.laminate_id %}checked{%endif%}
+                               {% endfor%}
+                        >{{item.Laminate.name}}
+                    </div>
+                    {%endif%}
+                    {% set count = count + 1 %}
+                    {%endfor%}
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="section last">
+            <div>
+                {{ form.submit('Save', {'class' : 'uibutton loading product_button'}) }}
+            </div>
+        </div>
+        {{ form.end() }}
+    </div>
+</div>
+
+<style>
+    .dimensions input {
+        width: 10%;
+        min-width: 80px;
+    }
+</style>
+<script src="../js/products.js"></script>

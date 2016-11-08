@@ -1,0 +1,61 @@
+<div class="title">
+    <h1>{{categoryItem.Category.title}}</h1>
+</div>
+<div class="wrap bg-white clearfix">
+    <aside class="sidebar">
+        <h2>Categories</h2>
+        <ul class="category">
+            {%for item in parentMenus%}
+            <li><a href="#">{{item.Category.title}}</a>
+                <ul>
+                    {%for value in productsAll%}
+                        {%if (value.Product.category_id == item.Category.id)%}
+                            <li class="active"><a href="/door/view/{{value.Product.id}}">{{value.Product.title}}</a></li>
+                        {%endif%}
+                    {%endfor%}
+                </ul>
+            </li>
+            {%endfor%}
+        </ul>
+    </aside>
+    <section class="holder">
+        <div class="clearfix">
+            <img src="{{categoryItem.Category.image_content}}" alt="" class="img-left">
+            <div class="holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis rutrum lectus. Suspendisse quis ullamcorper nunc. Aenean sed rhoncus erat, at volutpat metus. Curabitur nunc odio, porta non venenatis nec, finibus in augue. Nullam quis mi nec urna dictum luctus ut tincidunt lacus. Sed iaculis egestas interdum. Nunc dapibus urna ornare felis posuere vehicula. Aenean odio ante, egestas ut justo feugiat, tempor cursus orci.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis rutrum lectus. Suspendisse quis ullamcorper nunc. Aenean sed rhoncus erat, at volutpat metus. Curabitur nunc odio, porta non venenatis nec, finibus in augue. Nullam quis mi nec urna dictum luctus ut tincidunt lacus. Sed iaculis egestas interdum. </p>
+                <br/>
+                <a href="/" class="btn">Find products</a>
+            </div>
+        </div>
+        <h3 class="prod-ttl">Product Examples</h3>
+        <ul class="category-list-short clearfix">
+            {%for item in products%}
+            <li>
+                <a href="view/{{item.Product.id}}" class="image">
+                    <img src="{{item.Product.image}}" alt="" width="172" height="242">
+                    <span>{{item.Product.title}}</span>
+                </a>
+            </li>
+            {%endfor%}
+        </ul>
+    </section>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $(".open-nav").click(function () {
+            $(".nav-holder").toggleClass('show');
+            $(this).toggleClass('current');
+        });
+
+        $('ul.category').accordion({
+            active: 0,
+            autoHeight: 0,
+            header: "> li > a",
+            collapsible: true,
+            heightStyle: "content",
+            event: "click"
+        });
+    });
+</script>

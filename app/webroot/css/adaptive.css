@@ -1,0 +1,567 @@
+html {-webkit-text-size-adjust:none;}
+input,
+textarea {-webkit-appearance: none;}
+textarea,
+input {border-radius: 0;}
+@media only screen and (max-width : 1366px) {
+    .slider-holder .colors li {
+        width:185px;
+        height: 200px;
+        background-size: cover;
+    }
+    .slider-holder .colors li .plus-l-b,
+    .slider-holder .colors li .plus-r-b {bottom: 20px;}
+}
+@media only screen and (max-width : 1440px) {
+    .category-list .image {margin: 0 15px 0 0;}
+    .category-list .image img {
+        width:100px;
+        height: auto;
+    }
+    .category-list h3 {
+        font-size: 24px;
+        line-height: 26px;
+        margin: 0 0 5px;
+    }
+    .category-list .text-inner {height: 112px;}
+}
+@media only screen and (max-width : 1280px) {
+    .slider-holder .text {padding-left: 20px;}
+}
+/* ------------------- Tablet (portrait and landscape) ------------------- */
+@media only screen and (max-width : 1024px) {
+    .wrapper {padding: 0 20px;}
+    .slider-holder .text {
+        padding-left: 50px;
+        font-size: 15px;
+        line-height: 20px;
+        width:350px;
+    }
+    .slider-holder .text .sub-ttl {font-size: 22px;line-height: 24px;}
+    .slider-holder .text .ttl {
+        font-size: 50px;
+        line-height: 52px;
+        padding: 0 0 5px;
+    }
+    .slider-holder .text .sep {
+        width:160px;
+        margin: 0 0 10px;
+    }
+    .slider-holder .text p {margin: 0 0 20px;}
+    .slider-holder .text .view {
+        font-size: 15px;
+        line-height: 38px;
+        width:135px;
+    }
+    .slider-holder .colors li {
+        width:160px;
+        height: 175px;
+        background-size: cover;
+    }
+    .colors li .mask a {margin-top: 28px;}
+    .colors li .mask span {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .philosophy .text h2 {
+        font-size: 40px;
+        line-height: 42px;
+        margin: 0 0 10px;
+    }
+    .philosophy .text {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .gallery {margin: 0 0 0 -3%}
+    .gallery li {
+        width:30.3%;
+        margin: 0 0 3% 3%;
+        overflow: hidden;
+        height: auto;
+    }
+    .gallery li img {max-width:100%;height: auto}
+    .title {height: 130px;}
+    .category-list .image {
+        float: none;
+        display: block;
+        margin: 0 0 10px;
+    }
+    .category-list li {padding-right: 3%;}
+    .category-list .image img {width:auto}
+    .img-left {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        max-width:100%;
+    }
+    .contact-page .map-block {width:58%;}
+    .contact-page .form-block {width:42%}
+    .side {
+        float: none;
+        margin: 0 auto;
+
+    }
+    .example-slide-holder {
+        margin: 0;
+    }
+    .container {
+        float: none;
+        margin: 0 auto 50px;
+    }
+}
+/* ------------------- Tablet (portrait) ------------------- */
+@media only screen and (min-width : 737px) and (max-width : 773px) {
+    .category-list li {width:49.3%;}
+    .contact-page .map-block {width:50%;}
+    .contact-page .form-block {width:50%;}
+    .addr-hold .addr {
+        width:100%;
+        display: block;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .container {width:auto}
+    .downloads li strong {font-size: 16px;line-height: 18px;}
+    .downloads li em {width:70px;}
+    .downloads li span {padding: 0 10px;}
+    .sub-menu li {width:135px;}
+    .services li {width:135px;font-size: 16px;}
+    .philosophy .image {display: none}
+    .philosophy .text {width:100%;}
+    .contact .contact-block {width:700px;}
+    .contact .contact-info {width:541px;}
+    .colors-list {margin-left: -35px;}
+    .colors-list li {margin-left: 35px;}
+    .profile {padding: 50px;}
+    .profile label {font-size: 15px;}
+    .slider-holder .colors {width:325px;}
+    .slider-holder .colors li {
+        padding: 13px 15px 15px 13px;
+        width:100px;
+        height: 110px;
+    }
+    .slider-holder .colors li .plus-l-t {left: 8px;top: 10px;}
+    .slider-holder .colors li .plus-r-t {right:12px;top:10px;}
+    .slider-holder .colors li .plus-l-b {left:8px;bottom: 11px;}
+    .slider-holder .colors li .plus-r-b {right:12px;bottom: 11px;}
+    .colors li .mask a {
+        width:22px;
+        height: 22px;
+        background-size: 12px 12px;
+        margin: 15px auto 5px;
+    }
+    .colors li .mask span {font-size: 14px;line-height: 16px;}
+    #header .logo {width:150px;}
+    #nav li {font-size: 15px;margin: 0 20px 0 0}
+    #header .log {width:80px;}
+    .slider-holder .text {}
+    .slider-holder .text .ttl {
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .slider-holder .text .sub-ttl {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .slider-holder .text .sep {width:120px;}
+    .slider-holder .text {font-size: 13px;}
+    .slider-holder .text .view {font-size: 14px;line-height: 34px;}
+
+}
+/* ------------------- Smartphones (portrait and landscape) ------------------- */
+@media only screen and (max-width : 736px) {
+    .nav-holder {
+        position: fixed;
+        left:-80%;
+        top:0;
+        height: 100%;
+        width:80%;
+        background: #fff;
+        padding: 0;
+        z-index: 203;
+        transition: all 0.4s ease-in-out 0s;
+    }
+    .nav-holder.show {left:0;box-shadow:0 5px 5px rgba(0,0,0,0.7);}
+    .nav-holder .open-nav {
+        display: block;
+        position: absolute;
+        top:0;
+        left:100%;
+        background: #000 url(../img/nav-icon@2x.png) no-repeat 50% 50%;
+        background-size: 24px 20px;
+        overflow: hidden;
+        text-indent: -9999px;
+        height: 36px;
+        width:46px;
+    }
+    #nav li {
+        float: none;
+        margin: 5px;
+    }
+    #nav li a {
+        padding: 10px;
+        border-radius: 3px;
+    }
+    #nav li a:hover,
+    #nav li.active a {
+
+    }
+    #nav li a::after {display: none;}
+    #header .logo {
+        margin: 0 0 0 30px;
+        width:150px;
+    }
+    #header .log {width:80px;}
+    .title h1 {
+        font-size: 40px;
+        line-height: 42px;
+        padding: 20px 0;
+    }
+    .title {height: auto}
+    .sidebar {
+        float: none;
+        margin: 0 auto 20px;
+    }
+    .main-contact-info .block {
+        margin: 20px;
+        width:auto;
+    }
+    .main-contact-info {height: auto}
+    .addr-hold .addr {
+        display: block;
+        width:100%;
+    }
+    .contact-page .map-block,
+    .contact-page .form-block {width:50%;}
+    .form-holder .ttl-line {font-size: 20px;line-height: 24px;}
+    .container {width:auto}
+    .product-content .sub-nav {
+        float: none;
+        width:auto;
+        padding-bottom: 20px;
+    }
+    .style li {
+        width:31.3%;
+        margin-left: 3%;
+    }
+    .style li img {max-width:100%;height: auto}
+    .downloads li {
+        float: none;
+        width:100%;
+    }
+    .contact {height: 550px;}
+    .contact .contact-block {width:590px;}
+    .contact .nav-bar {width:130px;}
+    .contact .contact-info {width:456px;}
+    .sub-menu li {
+        width:100px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 600;
+        height: 80px;
+    }
+    .content-faq {padding: 0 0 20px;}
+    .gallery-popup img {
+        max-height: 300px;
+        max-width:500px;
+    }
+    .profile {padding: 50px;}
+    .profile ul li {
+        float: none;
+        width:100%;
+    }
+    .slider-holder .colors {width:325px;}
+    .slider-holder .colors li {
+        padding: 13px 15px 15px 13px;
+        width:100px;
+        height: 110px;
+    }
+    .slider-holder .colors li .plus-l-t {left: 8px;top: 10px;}
+    .slider-holder .colors li .plus-r-t {right:12px;top:10px;}
+    .slider-holder .colors li .plus-l-b {left:8px;bottom: 11px;}
+    .slider-holder .colors li .plus-r-b {right:12px;bottom: 11px;}
+    .colors li .mask a {
+        width:22px;
+        height: 22px;
+        background-size: 12px 12px;
+        margin: 15px auto 5px;
+    }
+    .colors li .mask span {font-size: 14px;line-height: 16px;}
+    .slider-holder .text .sub-ttl {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .slider-holder .text .ttl {
+        font-size: 35px;
+        line-height: 37px;
+    }
+    .slider-holder .text .sep {width:100px;}
+    .slider-holder .text {
+        font-size: 13px;
+        line-height: 15px;
+        padding-left: 35px;
+        width:260px;
+    }
+    .slider-holder .text p {margin: 0 0 10px;}
+    .slider-holder .text .view {
+        font-size: 13px;
+        font-weight: 500;
+        border-width:1px;
+        line-height: 30px;
+        width:125px;
+    }
+    .services li {
+        width:98px;
+        height: 125px;
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 5px;
+    }
+    .services li img {
+        width:35px;
+        height: auto;
+    }
+    .philosophy .image {display:none;}
+    .philosophy .text {
+        float: none;
+        width:100%;
+    }
+    .philosophy {height: auto;padding: 20px 0}
+
+    .contact .contact-block {
+        width:auto;
+        height: auto;
+        background-position: 50% 50%;
+    }
+    .contact .nav-bar {
+        float: none;
+        width:auto;
+        height: auto;
+    }
+    .contact .nav-bar a {
+        height: 90px;
+        width:49%;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .contact .contact-info {
+        float: none;
+        width:auto;
+    }
+    .contact .nav-bar {
+        border-right: 0;
+        border-bottom: 2px solid #fff;
+    }
+    .contact .nav-bar a em {
+        width:37px;
+        height: 37px;
+        margin-bottom: 3px;
+    }
+    .contact .nav-bar a em img {width:37px;margin-top: -37px;}
+    .contact .nav-bar a:hover em img,
+    .contact .nav-bar a.current em img {margin: 0;}
+    .contact .nav-bar a.current::before {
+        border-left: 25px solid transparent;
+        border-top: 17px solid #fff;
+        border-right: 25px solid transparent;
+        top:100%;
+        left:50%;
+        margin: 0 0 0 -25px;
+    }
+    .contact .contact-info img {max-width:100%; height: auto}
+    .contact .form-holder {padding: 20px;}
+    .gallery-popup .gallery-slider-prev, .gallery-popup .gallery-slider-next {margin-top: -105px;}
+    .popup {width:auto}
+    .popup-form {
+        width:400px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .popup-form {width:77%;}
+    .slider-holder .slider-pager span {width:40px;height: 3px;margin: 0 5px;}
+}
+/* ------------------- Smartphones (portrait) ------------------- */
+@media only screen and (max-width : 435px){
+    .category-list li {
+        width:100%;
+        padding: 0;
+    }
+    .category-list-short,
+    .product-list {
+        margin: 0;
+    }
+    .category-list-short li,
+    .product-list li {
+        float: none;
+        margin: 0 auto;
+    }
+    .product-list li {width:172px;margin-bottom: 10px;}
+    .prod-ttl {text-align: center}
+    .main-contact-info .block {padding: 20px;}
+    .addr {
+        display: block;
+        width:100%;
+        margin: 0 0 5px;
+    }
+    .addr-list .addr-hold {
+        float: none;
+        width:100%;
+    }
+    .addr-list .map {
+        float: none;
+        width:100%;
+    }
+    .addr-list .slide {padding-right: 30px;}
+    .addr-list .opener i {display: none}
+    .contact {height: auto}
+    .contact-page .map-block {
+        float: none;
+        width:100%;
+        height: 200px;
+    }
+    .contact-page .form-block {
+        float: none;
+        width:100%;
+    }
+    .select-area {
+        float: none;
+        margin: 0 auto 10px;
+    }
+    .show-block {
+        float: none;
+        width: 230px;
+    }
+    .product-tabs li {margin-right: 2px;}
+    .product-tabs li a {width:90px;font-size: 16px;}
+    .style li span {font-size: 14px;line-height: 16px;}
+    .example-slide-holder {margin: 0;}
+    .side {width:auto}
+    .example-slide-holder {padding: 0 40px 30px;}
+    .downloads li {margin-bottom: 10px;}
+    .downloads li em {width:70px;}
+    .downloads li span {padding: 0 5px;font-size: 10px;}
+    .downloads li a {padding-left: 10px;}
+    .downloads li strong {font-size: 14px;line-height: 16px;}
+    .downloads {padding: 20px 0 10px;}
+    .sub-menu li {
+        font-size: 12px;
+        margin-top: 4px;
+        width:97px;
+    }
+    .faq .slide {
+        font-size: 14px;
+        line-height: 20px;
+        padding-right: 30px;
+    }
+    .main-contact-info .block h2 {font-size: 28px;}
+    .main-contact-info .block {height: auto;}
+    .colors-list {margin: 0;}
+    .colors-list li {
+        float: none;
+        margin: 0 auto;
+    }
+    .sort-hold .sort .selectbox {width:200px;}
+    .profile {padding: 10px;}
+    .profile label {
+        float: none;
+        width:100%;
+        display: block;
+    }
+    .profile .txt {
+        width:100%;
+        text-align: center;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .btn.btn-left,
+    .btn.btn-right {
+        display: block;
+        margin: 0 auto 5px;
+        float: none;
+    }
+    #footer .sub-logo {
+        position: static;
+        display: block;
+        margin: 0 auto 10px;
+    }
+    #footer .top {padding: 10px 0 0;}
+    #footer .info {font-size: 13px;}
+    #footer .bottom .copy,
+    #footer .bottom .dev-copy {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .slider-holder .text p,
+    .slider-holder .text .sep{display: none}
+    .slider-holder .text .sub-ttl {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 0;
+    }
+    .slider-holder .text .ttl {
+        font-size: 34px;
+        line-height: 36px;
+        padding: 0;
+    }
+    .slider-holder .text .view {
+        line-height: 24px;
+        font-size: 13px;
+    }
+    .slider-holder .text {width:140px;}
+    .slider-holder .colors {width:100px;height: 110px;overflow: hidden}
+    .slider-holder {margin-bottom: 15px;}
+    .gallery-popup img {
+        max-height: 300px;
+        max-width:200px;
+    }
+    .gallery-popup .gallery-slider-prev,
+    .gallery-popup .gallery-slider-next {
+        margin: 0;
+        top:9%;
+    }
+    .style {text-align: center}
+    .style li,
+    .style li:first-child {
+        display: inline-block;
+        vertical-align: top;
+        float: none;
+        width:47%;
+        margin: 0 1%;
+    }
+    .col,
+    .col-r {
+        float: none;
+        width:100%;
+    }
+    .slider-holder .slider-prev, .slider-holder .slider-next {font-size: 55px;}
+    .gallery-popup .gallery-slider-prev {
+        width:50px;
+        height: 50px;
+        left:-25px;
+        line-height: 50px;
+        font-size: 30px;
+        padding-right: 11px;
+        top:14%;
+    }
+    .gallery-popup .gallery-slider-next {
+        width:50px;
+        height: 50px;
+        right:-25px;
+        line-height: 50px;
+        font-size: 30px;
+        padding-left: 11px;
+        top:14%;
+    }
+    .slider-holder img, .slider-holder .cycle-slide {height: 200px;}
+    .colors li img {height: auto}
+    .popup-form .txt-pass {width:100%;float:none;}
+    .popup-form .forgot-pass {
+        float: none;
+        margin-top: 5px;
+        display: block;
+        text-align: center;
+    }
+}

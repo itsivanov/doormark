@@ -1,0 +1,106 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-newspaper-o"></i> Categories</span>
+{{ _view.end() }}
+
+<!-- title box -->
+<div class="boxtitle min"><i class="fa fa-pencil"></i> Edit category</div>
+<ul class="uibutton-group">
+    <li><a href="/admin/categories" class="uibutton special"><i class="fa fa-list-ol"></i> All categories</a></li>
+</ul>
+
+{{ form.create({'class' : 'form'}) }}
+
+    <div class="section">
+        <label>Active</label>
+        <div>{{ form.checkbox('active', {'checked': productInfo.Product.active})}}</div>
+    </div>
+
+
+    <div class="section">
+        <label>Category name</label>
+        <div>{{ form.input('title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Category name'}) }}</div>
+    </div>
+
+    <div class="section">
+        <label>Sub Title</label>
+        <div>
+            <div>{{ form.input('subtitle', {'type':'text', 'id' : '', 'label' : false}) }}</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <label>Description</label>
+        <div>
+            <div>{{ form.input('description', {'type':'textarea', 'id' : '', 'label' : false}) }}</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <label>Hovered font color</label>
+        <div>{{ form.input('color', {'type':'color', 'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Category color'}) }}</div>
+    </div>
+
+    <div class="section">
+        <label>Icon</label>
+        <div>
+            {{ form.hidden('image', {'div': false, 'label': false, 'id' : 'imageIcon'}) }}
+            <img src="{{ data.Category.image|default('/img/no_image/default.jpg') }}" width="50" image-wrapper="#imageIcon"/>
+            <a href="javascript:" class="clearIcon"><i class="fa fa-trash"></i> clear</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <label>Arrow icon</label>
+        <div>
+            {{ form.hidden('image_content', {'div': false, 'label': false, 'id' : 'arrowIcon'}) }}
+            <img src="{{ data.Category.image_content|default('/img/no_image/default.jpg') }}" width="50" image-wrapper="#arrowIcon"/>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <label>Key</label>
+        <div>
+            <div>{{ form.input('key', {'type':'text', 'label' : false}) }}</div>
+        </div>
+    </div>
+
+    <div class="section last">
+        <div>
+          {{ form.submit('Save', {'class' : 'uibutton loading'}) }}
+        </div>
+    </div>
+{{ form.end() }}
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('#wysiwyg').elrte(opts);
+
+        $(document).on('click', '.clearIcon', function(){
+            $('#imageIcon').val('');
+            $('[image-wrapper="#imageIcon"]').attr('src', '/img/no_image/default.jpg');
+        });
+
+        $(document).on('click', '[image-wrapper]', function(e) {
+            e.preventDefault();
+            var thisBtn = $(e.currentTarget);
+            var thisSelector = $(this).attr('image-wrapper');
+            $("<div />").dialogelfinder({
+                width: 850,
+                url: '/js/elfinder2/connector.php',
+                commandsOptions: {
+                    getfile: {
+                        oncomplete: 'destroy' // destroy elFinder after file selection
+                    }
+                },
+                getFileCallback: function (url) {
+                    $(thisSelector).val(url);
+                    thisBtn.attr('src',      url);
+                }
+            });
+        });
+    });
+</script>

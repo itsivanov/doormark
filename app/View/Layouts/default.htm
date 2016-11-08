@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="main-body">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name='viewport' content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>Doormark</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&amp;language=en"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChYgEjDdeUzJWMFjADufuNy_1w-ThKVVM" async="" defer="defer" type="text/javascript"></script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+    {{ minify.css([
+        'font-awesome.min',
+        'fonts/stylesheet',
+        'jquery.mCustomScrollbar',
+        'style',
+        'selectbox',
+        'adaptive',
+        'jquery.fancybox',
+        'jquery.pnotify.default'
+    ])
+    }}
+
+    {{ html.script([
+        'jquery-1.12.0.min',
+        'html5',
+        'jquery.accordion',
+        'jquery.mCustomScrollbar.concat.min',
+        'jquery.cycle2.min',
+        'jquery.cycle2.swipe.min',
+        'jquery.cycle2.center.min',
+        'jquerytools-tabs',
+        'fancybox/jquery.fancybox.pack',
+        'jquery.pnotify.min'
+
+
+    ])
+    }}
+
+
+    {{ session.flash('flash') }}
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66849311-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- get adaptive menu -->
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $('.nav-bar').tabs('.contact-info > div');
+            $('.slider-1').cycle();
+            $('.slider-2').cycle();
+            $(".open-nav").click(function () {
+                $(".nav-holder").toggleClass('show');
+                $(this).toggleClass('current');
+            });
+
+            $('.log').click(function () {
+                $('#doska').css('display','none');
+            })
+            $("a.log").fancybox({
+                'padding' : 0
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $('.nav-bar').tabs('.contact-info > div');
+            $('.slider-1').cycle();
+            $(".open-nav").click(function () {
+                $(".nav-holder").toggleClass('show');
+                $(this).toggleClass('current');
+            });
+            $("a.log").fancybox({
+                'padding'			: 0
+            });
+            $("a.view, .mask a").fancybox({
+                'padding'			: 35
+            });
+        });
+    </script>
+</head>
+<body>
+{{ _view.element('header') }}
+{{ _view.fetch('content') }}
+{{ _view.element('footer') }}
+
+</body>
+</html>

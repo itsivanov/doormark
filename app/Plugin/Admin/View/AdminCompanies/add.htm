@@ -1,0 +1,72 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+    <div class="header"><span><i class="fa fa-file-text"></i> Companies</span>
+{{ _view.end() }}
+
+    <div class="boxtitle min"><i class="fa fa-pencil"></i> Edit Company</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/companies" class="uibutton special"><i class="fa fa-list-ol"></i> Companies list</a></li>
+    </ul>
+
+    {{ form.create({'class' : 'form'}) }}
+        {{ form.hidden('id' ) }}
+
+        <div class="section">
+            <label>Company Name:</label>
+            <div>{{ form.input('company_name', {'div' : false,  'label' : false, 'required' : 'required', 'placeholder':'Company Name'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Company Code:</label>
+            <div>{{ form.input('company_code', {'div' : false,'type':'text', 'label' : false, 'required' : 'required', 'placeholder':'Company Code'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Customer Number:</label>
+            <div>{{ form.input('customer_number', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Customer Number'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Phone Number:</label>
+            <div>{{ form.input('phone', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Phone Number'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Fax Number:</label>
+            <div>{{ form.input('fax', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Fax Number'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Address:</label>
+            <div>{{ form.input('address', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Address'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Shipping Address:</label>
+            <div>{{ form.input('shipping_address', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Shipping Address'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Primary Email: </label>
+            <div>{{ form.input('primary_email', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Alt Email:</label>
+            <div>{{ form.input('alt_email', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Alt Email'}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Sales Representative:</label>
+            <div>{{ form.input('present', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Sales Representative'}) }}</div>
+        </div>
+
+        <div class="section last">
+            <div>
+              {{ form.submit('Save', {'class' : 'uibutton loading'}) }}
+            </div>
+        </div>
+
+    {{ form.end() }}
+</div>

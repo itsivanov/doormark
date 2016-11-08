@@ -1,0 +1,136 @@
+<div class="contact">
+    <div class="table">
+        <div class="table-cell">
+            <div class="contact-block clearfix">
+                <div class="nav-bar">
+                    <a href="#">
+                            <span class="table">
+                                <span class="table-cell">
+                                    <em><img src="img/contact-ico.png"></em>
+                                    <span>Contact Us</span>
+                                </span>
+                            </span>
+                    </a>
+                    <a href="#" id="mapMain">
+                            <input type="hidden" class="lat" value="{{form_main.CompanyContact.lat}}">
+                            <input type="hidden" class="lng" value="{{form_main.CompanyContact.lng}}">
+                             <span class="table">
+                                <span class="table-cell">
+                                    <em><img src="img/map-ico.png"></em>
+                                    <span>Get<br/>Directions</span>
+                                </span>
+                            </span>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <div class="form-holder">
+                        <form action="" method="post">
+                            <fieldset>
+                                <div class="clearfix">
+                                    <div class="col">
+                                        <div class="row">
+                                            <input type="text" name="ContactForm[name]" class="txt" placeholder="Name" required>
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col col-r">
+                                        <div class="row">
+                                            <input type="email" name="ContactForm[email]" class="txt" placeholder="Email" required>
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <input type="text" name="ContactForm[subject]" class="txt" placeholder="Subject" required>
+                                    <i class="fa fa-list-ul"></i>
+                                </div>
+                                <div class="row">
+                                    <textarea placeholder="Message" name="ContactForm[message]"required></textarea>
+                                    <i class="fa fa-pencil"></i>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" name="" class="sbm" value="submit">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="map-block">
+                            <div style=" width:100%; height:450px;" class="mapMain" id="map_main"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function(){
+
+        $(document).on('click', '#mapMain', function(){
+            var lat = $(this).children('.lat').val(),
+                    lng = $(this).children('.lng').val();
+            console.log(lat);
+            console.log(lng);
+            google.maps.event.addDomListener(window, 'load', initialize(lat, lng, 'main'));
+
+        });
+
+
+
+        var geocoder;
+        var map;
+        var address = 'addres';
+
+        function initialize(lat, lng, i) {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(lat, lng);
+            var myOptions = {
+                zoom: 16,
+                center: latlng,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                },
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("map_" + i), myOptions);
+
+            if (geocoder) {
+                geocoder.geocode({
+                    'address': address
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                            map.setCenter(results[i].geometry.location);
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: '<b>' + address + '</b>',
+                                size: new google.maps.Size(150, 50)
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position: results[i].geometry.location,
+                                map: map,
+                                title: address
+                            });
+                            google.maps.event.addListener(marker, 'click', function() {
+                                infowindow.open(map, marker);
+                            });
+
+                        } else {
+                            alert("No results found");
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+

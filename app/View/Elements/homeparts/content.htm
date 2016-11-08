@@ -1,0 +1,40 @@
+<div class="content center bg-white">
+    <div class="wrapper">
+        {%for item in content%}
+            {%if (item.HomePart.key == 'content' )%}
+                <h2>{{item.HomePart.title}}</h2>
+                <p>{{item.HomePart.content}}</p>
+            {%endif%}
+        {%endfor%}
+    </div>
+</div>
+
+<ul class="services bg-white">
+    {%for item in content%}
+        {%if (item.HomePart.key == 'content_icon' )%}
+        <li>
+            <img src="{{item.HomePart.image}}" alt="">
+            <span>{{item.HomePart.title}}</span>
+        </li>
+        {%endif%}
+    {%endfor%}
+
+</ul>
+<div clas="line"></div>
+
+<div class="philosophy clearfix">
+    <div class="image"></div>
+    <div class="text">
+        <div class="table">
+            <div class="table-cell">
+                {%for item in content%}
+                    {%if (item.HomePart.key == 'credo' )%}
+                        <h2>{{item.HomePart.title}}</h2>
+                        <p><em>{{item.HomePart.content}}</em></p>
+                    {%endif%}
+                {%endfor%}
+                <img src="img/signature.png" alt="" class="sign">
+            </div>
+        </div>
+    </div>
+</div>

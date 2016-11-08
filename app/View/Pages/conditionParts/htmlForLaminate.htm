@@ -1,0 +1,26 @@
+<div class="color-img">
+    <img src="{{laminate.Laminate.image}}" alt="" width="540" height="543">
+</div>
+<div class="color-detail">
+    <h5>{{laminate.Laminate.title}}</h5>
+    <dl>
+        <dt>Available in: </dt>
+        <dd>{{laminate.Laminate.available == 1 ? 'Yes' : 'No'}}</dd>
+    </dl>
+    <dl>
+        <dt>Foil: </dt>
+        <dd>{{laminate.Laminate.foil == 1 ? 'Yes' : 'No'}}</dd>
+    </dl>
+    <dl>
+        <dt>High pressure laminate: </dt>
+        <dd>{{laminate.Laminate.high == 1 ? 'Yes' : 'No'}}</dd>
+    </dl>
+    <dl>
+        <dt>Phenolic backed laminate: </dt>
+        <dd>{{laminate.Laminate.phenolic == 1 ? 'Yes' : 'No'}}</dd>
+    </dl>
+    <dl>
+        <dt>Match back: </dt>
+        <dd>{{laminate.Laminate.match == 1 ? 'Yes' : 'No'}}</dd>
+    </dl>
+</div>

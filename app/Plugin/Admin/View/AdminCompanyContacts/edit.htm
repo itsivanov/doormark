@@ -1,0 +1,91 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> FAq</span>
+    {{ _view.end() }}
+
+    <style>
+        .properties{
+            margin-bottom: 70px;
+        }
+
+        .properties div{
+            width: auto; float: left; margin: 0 20px; border: 0;
+        }
+    </style>
+    <div class="boxtitle min"><i class="fa fa-pencil"></i>edit FAQ</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/contact" class="uibutton special"><i class="fa fa-arrow-left"></i>Back</a></li>
+    </ul>
+    {{ form.create({'class' : 'form', }) }}
+    {{ form.hidden('id',{'value' : contact.CompanyContact.id} ) }}
+
+    <div class="section">
+        <label>Title</label>
+        <div>{{ form.input('title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value': contact.CompanyContact.title}) }}</div>
+    </div>
+
+    {%if (contact.CompanyContact.id != 6)%}
+        <div class="section">
+            <label>Address</label>
+            <div>{{ form.input('address', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Address', 'value': contact.CompanyContact.address}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Email</label>
+            <div>{{ form.input('email', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Email', 'value': contact.CompanyContact.email}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Phone</label>
+            <div>{{ form.input('phone', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Phone ', 'value': contact.CompanyContact.phone}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Phone 2</label>
+            <div>{{ form.input('phone_2', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Phone 2', 'value': contact.CompanyContact.phone_2}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Fax</label>
+            <div>{{ form.input('fax', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Fax', 'value': contact.CompanyContact.fax}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Fax 2</label>
+            <div>{{ form.input('fax_2', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Fax 2', 'value': contact.CompanyContact.fax_2}) }}</div>
+        </div>
+    {%endif%}
+        <div class="section">
+            <label>Latitude</label>
+            <div>{{ form.input('lat', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Latitude', 'value': contact.CompanyContact.lat}) }}</div>
+        </div>
+
+        <div class="section">
+            <label>Longitude</label>
+            <div>{{ form.input('lng', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Longitude', 'value': contact.CompanyContact.lng}) }}</div>
+
+        </div>
+
+
+    <div class="section">
+        <div>
+            {{ form.submit('Save', {'class' : 'uibutton loading product_button'}) }}
+        </div>
+    </div>
+
+    {{ form.end() }}
+
+
+    <style>
+        .dimensions input {
+            width: 10%;
+            min-width: 80px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $('.edit_faq').elrte(opts);
+
+    </script>

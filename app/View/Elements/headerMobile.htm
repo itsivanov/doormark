@@ -1,0 +1,14 @@
+<div class="main-page-home">
+            <a class="navicon-button x open-nav">
+                <div class="navicon"></div>
+            </a>
+            <nav class="nav-holder clearfix">
+                <ul>
+                    {%for item in headerMenu%}
+                    <li>
+                        <a href="{{item.Menu.url}}" class="">{{item.Menu.name}}</a>
+                    </li>
+                    {%endfor%}
+                </ul>
+            </nav>
+        </div>

@@ -1,0 +1,14 @@
+{%for item in categoryContent%}
+<li class="countCat">
+    <a href="category-inner.html" class="image">
+        <img src="{{item.Category.image}}" alt="" width="172" height="242">
+    </a>
+    <div class="holder">
+        <h3><a href="category-inner.html">{{item.Category.title}}</a></h3>
+        <div class="text-inner">
+            <p>{{item.Category.description}}</p>
+        </div>
+        <a href="{{item.Category.id}}" class="btn">Details</a>
+    </div>
+</li>
+{%endfor%}

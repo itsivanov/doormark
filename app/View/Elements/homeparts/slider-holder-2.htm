@@ -1,0 +1,35 @@
+<section class="slider-holder">
+    <div class="slider slider-2"
+         data-cycle-slides=".item"
+         data-cycle-fx=scrollHorz
+         data-cycle-timeout=0
+         data-cycle-next=".slider-next-2"
+         data-cycle-prev=".slider-prev-2"
+         data-cycle-pager=".slider-pager-2"
+         data-cycle-swipe=true>
+        <div class="slider-prev slider-prev-2"><i class="fa fa-angle-left"></i></div>
+        <div class="slider-next slider-next-2"><i class="fa fa-angle-right"></i></div>
+        <div class="slider-pager slider-pager-2"></div>
+
+        {%for item in slidesSecond %}
+        <div class="item">
+            <img src="{{item.Slide.image}}" alt=""/>
+            <div class="text-holder">
+                <div class="wrapper">
+                    <div class="table">
+                        <div class="table-cell">
+                            <div class="text">
+                                <span class="sub-ttl">{{item.Slide.subtitle}}</span>
+                                <span class="ttl">{{item.Slide.title}}</span>
+                                <div class="sep"></div>
+                                <p>{{item.Slide.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+
+    </div>
+</section>

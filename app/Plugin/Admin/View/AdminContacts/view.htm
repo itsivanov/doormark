@@ -1,0 +1,39 @@
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-envelope"></i> View message </span>
+{{ _view.end() }}
+
+<div class="boxtitle min"><i class="fa fa-list-ol"></i> Contacts Us</div>
+
+<ul class="uibutton-group">
+    <li><a href="/admin/contacts" class="uibutton" title="Add claim"><i class="fa fa-list-ol"></i> All messages</a></li>
+</ul>
+
+{{ form.create('Contact', {'class' : 'form'}) }}
+    <div class="section">
+        <label>Date</label>
+        <div>{{ contact.Contact.created }}</div>
+    </div>
+
+    <div class="section">
+        <label>Name</label>
+        <div>{{ contact.Contact.name}}</div>
+    </div>
+
+    <div class="section">
+        <label>Email</label>
+        <div>{{ contact.Contact.email }}</div>
+    </div>
+
+    <div class="section">
+        <label>Subject</label>
+        <div>{{ contact.Contact.subject }}</div>
+    </div>
+
+    <div class="section">
+        <label>Message</label>
+        <div>{{ contact.Contact.message }}</div>
+    </div>
+
+{{ form.end() }}
+
+</div>

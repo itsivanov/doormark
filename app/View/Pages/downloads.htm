@@ -1,0 +1,29 @@
+
+<div class="title">
+    <h1>{{namePage.Page.title}}</h1>
+</div>
+
+<div class="content center bg-white">
+    <div class="wrapper">
+        <p>{{namePage.Page.content}}</p>
+    </div>
+</div>
+<div class="line"></div>
+<div class="wrapper">
+    <ul class="downloads clearfix">
+        {%for item in files%}
+            {%if (item.Download.new == 1)%}
+                <li class="new">
+            {%else%}
+                <li>
+            {%endif%}
+                    <a href="{{item.Download.link}}" class="table" download>
+                        <strong class="table-cell">{{item.Download.title}}</strong>
+                        <span class="table-cell">{{item.Download.subtitle}}<br/>{{item.Download.size}}Mb</span>
+                        <em><img src="img/download.png" alt=""></em>
+                    </a>
+                </li>
+        {%endfor%}
+    </ul>
+</div>
+{{ _view.element('homeparts/contact') }}

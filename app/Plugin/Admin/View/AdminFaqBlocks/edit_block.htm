@@ -1,0 +1,44 @@
+{{ _view.element('widgets/editor') }}
+
+{{ _view.start('captionHeader') }}
+<div class="header"><span><i class="fa fa-gift"></i> Add Question Block</span>
+    {{ _view.end() }}
+
+    <style>
+        .properties{
+            margin-bottom: 70px;
+        }
+
+        .properties div{
+            width: auto; float: left; margin: 0 20px; border: 0;
+        }
+    </style>
+    <div class="boxtitle min"><i class="fa fa-pencil"></i> Add Block for Questions</div>
+    <ul class="uibutton-group">
+        <li><a href="/admin/faq" class="uibutton special"><i class="fa fa-arrow-left"></i> Back</a></li>
+    </ul>
+    {{ form.create({'class' : 'form'}) }}
+    <div class="section">
+        <label>Active</label>
+        <div>{{ form.checkbox('active', {'checked' : faq.FaqBlock.active})}}</div>
+        {{ form.hidden('id', {'value' : faq.FaqBlock.id} ) }}
+    </div>
+
+    <div class="section">
+        <label>Question</label>
+
+        <div>{{ form.input('title', {'div' : false, 'label' : false, 'required' : 'required', 'placeholder':'Title', 'value' : faq.FaqBlock.title}) }}</div>
+    </div>
+
+    <div class="section">
+        <div>
+            {{ form.submit('Save', {'class' : 'uibutton loading '}) }}
+        </div>
+    </div>
+    {{ form.end() }}
+
+</div>
+
+<script type="text/javascript">
+    $('.add_faq').elrte(opts);
+</script>

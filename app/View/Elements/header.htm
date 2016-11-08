@@ -1,0 +1,22 @@
+<header id="header" class="bg-white">
+    <div class="wrapper">
+        <strong class="logo"><a href="/"><img src="/img/logo.png" alt="title" title="title"></a></strong>
+        {%if user == null%}
+            <a href="#login" class="log">Login</a>
+        {%else%}
+            <a href="/logout" class="log">Logout</a>
+            <a href="/profile" class="log">Profile</a>
+
+        {%endif%}
+        <nav class="nav-holder">
+            <a href="javascript:void(0);" class="open-nav">Menu</a>
+            <ul id="nav" class="clearfix">
+                {% for item in headerMenu %}
+                <li>
+                    <a class="{{ item.Menu.key == pageKey ? 'active':'' }}" href="{{ item.Menu.url }}">{{ item.Menu.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

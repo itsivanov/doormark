@@ -1,0 +1,60 @@
+
+
+<footer id="footer" class="bg-white">
+    <div class="top wrapper">
+        <img src="/img/sub-logo.png" alt="" class="sub-logo">
+        <ul class="menu">
+            {% for item in headerMenu %}
+            <li>
+            <a href="{{ item.Menu.url }}">{{ item.Menu.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <ul class="social">
+            <li><a href="{{ options.facebook }}"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{ options.linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="{{ options.pinterest }}"><i class="fa fa-pinterest-p"></i></a></li>
+        </ul>
+        <br/>
+        <span class="info">{{options.address}}</span>
+        <span class="info">{{options.tf}}</span>
+        <span class="info">{{options.phone}}</span>
+        <span class="info">{{options.fax}}</span>
+    </div>
+    <div class="bottom">
+        <div class="wrapper">
+            <span class="copy">&copy;{{options.copyright}}</span>
+            <span class="dev-copy"><a href="#" target="_blank"> <img src="img/vt.png" alt=""></a> Developed by <a href="#" target="_blank">Vizualtech</a> <a href="#" target="_blank"><img src="img/ds.png" alt=""></a> and <a href="#" target="_blank">DSXpress</a></span>
+        </div>
+    </div>
+</footer>
+{{ _view.element('conditionParts/laminate') }}
+{{ _view.element('conditionParts/slideshow') }}
+{{ _view.element('conditionParts/login') }}
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+//        $('.gallery-slider').cycle();
+        $('.nav-bar').tabs('.contact-info > div');
+        $(".open-nav").click(function () {
+            $(".nav-holder").toggleClass('show');
+            $(this).toggleClass('current');
+        });
+        $("a.fancy").fancybox({
+            'padding'			: 35,
+            'autoScale'			: true,
+            'autoDimensions'    : true,
+//	            'transitionIn'		: 'none',
+//	            'transitionOut'		: 'none',
+            'scrolling'   		: 'auto',
+            'transitionIn'	:	'elastic',
+            'transitionOut'	:	'elastic',
+            'speedIn'		:	600,
+            'speedOut'		:	200,
+            'overlayShow'	:	false,
+            afterShow : function() {
+                $('.gallery-slider').cycle();
+            }
+        });
+    });
+</script>

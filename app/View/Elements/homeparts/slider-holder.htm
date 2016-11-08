@@ -1,0 +1,55 @@
+<section class="slider-holder slider-holder-top">
+    <div class="slider slider-1"
+         data-cycle-slides=".item"
+         data-cycle-fx=scrollHorz
+         data-cycle-timeout=0
+         data-cycle-next=".slider-next-1"
+         data-cycle-prev=".slider-prev-1"
+         data-cycle-pager=".slider-pager-1"
+         data-cycle-swipe=true>
+        <div class="slider-prev slider-prev-1"><i class="fa fa-angle-left"></i></div>
+        <div class="slider-next slider-next-1"><i class="fa fa-angle-right"></i></div>
+        <div class="slider-pager slider-pager-1"></div>
+        {%for item in mainSlides %}
+        <div class="item">
+            <img src="{{item.MainSlide.image}}" alt=""/>
+            <div class="text-holder">
+                <div class="wrapper">
+                    <div class="table">
+                        <div class="table-cell">
+                            <div class="text">
+                                <span class="sub-ttl">{{item.MainSlide.subtitle}}</span>
+                                <span class="ttl">{{item.MainSlide.title}}</span>
+                                <div class="sep"></div>
+                                <p>{{item.MainSlide.content}}</p>
+                                <a href="{{item.MainSlide.key}}" class="view">{{item.MainSlide.link}}</a>
+                            </div>
+                        </div>
+                        <div class="table-cell">
+                            <ul class="colors clearfix">
+                                {%for value in item.MainSlidesLaminate%}
+                                    <li>
+                                        <div class="holder" >
+                                            <img src="{{value.image}}" alt="" width="155" height="178">
+                                            <div class="mask" >
+                                                <a href="#laminate" class="crec" id="{{value.id}}">+</a>
+                                                <span>Title Color</span>
+                                            </div>
+                                        </div>
+                                        <span class="plus plus-l-t"></span>
+                                        <span class="plus plus-r-t"></span>
+                                        <span class="plus plus-l-b"></span>
+                                        <span class="plus plus-r-b"></span>
+                                    </li>
+                                {%endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+
+
+    </div>
+</section>

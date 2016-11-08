@@ -1,0 +1,65 @@
+
+<div class="title">
+    <h1>FAQ</h1>
+</div>
+
+<div class="content center bg-white">
+    <div class="wrapper">
+        <p>{{namePage.Page.content}}</p>
+    </div>
+
+</div>
+
+<ul class="sub-menu bg-white">
+    {%for name in faqs%}
+    <li>
+        <a href="#" class="table">
+            <span class="table-cell">{{name.FaqBlock.title}}</span>
+        </a>
+    </li>
+    {%endfor%}
+
+</ul>
+
+<div class="wrapper">
+    <div class="content-faq">
+        {%for item in faqs %}
+                <div>
+                    <ul class="faq">
+                        {%for val in item.Faq %}
+                            {%if (item.FaqBlock.id == val.block_id) %}
+                                <li>
+                                    <span class="opener">{{val.question}}</span>
+                                    <div class="slide">
+                                        <p>{{val.answer}}</p>
+                                    </div>
+                                </li>
+                            {%endif%}
+                        {%endfor%}
+                    </ul>
+                </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+{{ _view.element('homeparts/contact') }}
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $('.nav-bar').tabs('.contact-info > div');
+        $('.sub-menu').tabs('.content-faq > div');
+        $(".open-nav").click(function () {
+            $(".nav-holder").toggleClass('show');
+            $(this).toggleClass('current');
+        });
+        $('ul.faq').accordion({
+            active: 1,
+            autoHeight: 0,
+            header: ".opener",
+            collapsible: true,
+            heightStyle: "content",
+            event: "click"
+        });
+    });
+</script>

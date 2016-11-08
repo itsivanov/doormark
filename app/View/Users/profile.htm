@@ -1,0 +1,90 @@
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        $(".open-nav").click(function () {
+            $(".msg").toggleClass('show');
+            $(this).toggleClass('current');
+        });
+        $("a.popup-link").fancybox({
+            'padding' : 0
+        });
+    });
+</script>
+<div class="title">
+    <h1>Profile</h1>
+</div>
+<div class="line"></div>
+<div class="wrapper">
+
+    <div class="profile">
+<!--{{userInfo|var_dump}}-->
+        <ul>
+            <li>
+                <label for="id-1">Company Name</label>
+                <input type="text" name="" class="txt" id="id-1" value="{{userInfo.company_name}}" readonly>
+            </li>
+            <li>
+                <label for="id-2">Address</label>
+                <input type="text" name="" class="txt" id="id-2" value="{{userInfo.address}}" readonly>
+            </li>
+            <li>
+                <label for="id-3">Company Code</label>
+                <input type="text" name="" class="txt" id="id-3" value="{{userInfo.company_code}}" readonly>
+            </li>
+            <li>
+                <label for="id-4">Shipping Address</label>
+                <input type="text" name="" class="txt" id="id-4" value="{{userInfo.shipping_address}}" readonly>
+            </li>
+            <li>
+                <label for="id-5">Customer Number</label>
+                <input type="text" name="" class="txt" id="id-5" value="{{userInfo.customer_number}}" readonly>
+            </li>
+            <li>
+                <label for="id-6">Primary Email</label>
+                <input type="text" name="" class="txt" id="id-6" value="{{userInfo.primary_email}}" readonly>
+            </li>
+            <li>
+                <label for="id-7">Phone Number</label>
+                <input type="text" name="" class="txt" id="id-7" value="{{userInfo.phone}}" readonly>
+            </li>
+            <li>
+                <label for="id-8">Alt Email</label>
+                <input type="text" name="" class="txt" id="id-8" value="{{userInfo.alt_email}}" readonly>
+            </li>
+            <li>
+                <label for="id-9">Fax Number</label>
+                <input type="text" name="" class="txt" id="id-9" value="{{userInfo.fax}}" readonly>
+            </li>
+            <li>
+                <label for="id-10">Sales Representative</label>
+                <input type="text" name="" class="txt" id="id-10" value="{{userInfo.present}}" readonly>
+            </li>
+        </ul>
+
+        <div class="clearfix">
+            <a href="http://doormark.com/order/" class="btn btn-left">Go to wholesale store</a>
+            <a href="#request" class="btn btn-right popup-link">Contact admin to edit</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="msg" style="display: none">
+<div class="popup" id="request">
+    <div class="form-holder popup-form">
+        <form action="" method="post">
+            <fieldset>
+                <span class="ttl-line center">Leave your message for the request to edit information</span>
+                <input type="hidden" name="ProfileMessage[name]" value="{{userInfo.company_name}}">
+                <input type="hidden" name="ProfileMessage[email]" value="{{userInfo.primary_email}}">
+                <input type="hidden" name="ProfileMessage[subject]" value="PROFILE MESSAGE">
+                <div class="row">
+                    <textarea name="ProfileMessage[message]" placeholder="Message" required></textarea>
+                </div>
+                <div class="row">
+                    <input type="submit" value="submit" class="sbm" >
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
